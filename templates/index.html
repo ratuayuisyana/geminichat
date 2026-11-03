@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Chat - AI Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <div><strong>Gemini Chat</strong><small>AI Assistant</small></div>
+      </div>
+      <button id="newChatBtn" class="new-chat">＋ Chat baru</button>
+      <div class="side-note">
+        <strong>Asisten AI umum</strong>
+        <p>Tanyakan apa saja, minta penjelasan, ide, atau bantuan menulis.</p>
+      </div>
+      <div class="sidebar-bottom">Ditenagai Google Gemini</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="mobileNewChat" class="mobile-new" aria-label="Chat baru">＋</button>
+        <div><strong>AI Assistant</strong><span class="status"><i></i> Siap membantu</span></div>
+        <button id="clearBtn" class="clear-btn">Hapus chat</button>
+      </header>
+
+      <section id="chatArea" class="chat-area">
+        <div id="welcome" class="welcome">
+          <div class="welcome-spark">✦</div>
+          <h1>Ada yang bisa saya bantu?</h1>
+          <p>Mulai percakapan dengan asisten AI.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Jelaskan kecerdasan buatan dengan bahasa sederhana.">Jelaskan tentang AI</button>
+            <button class="suggestion" data-prompt="Bantu saya membuat jadwal belajar yang teratur.">Buat jadwal belajar</button>
+            <button class="suggestion" data-prompt="Berikan ide proyek website sederhana untuk pemula.">Ide proyek website</button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="1" placeholder="Ketik pesan..." autocomplete="off"></textarea>
+          <button id="sendBtn" type="submit" aria-label="Kirim pesan">➤</button>
+        </form>
+        <p class="disclaimer">AI dapat membuat kesalahan. Periksa kembali informasi penting.</p>
+      </footer>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
