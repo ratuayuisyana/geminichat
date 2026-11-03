@@ -1,12 +1,16 @@
 import os
 import threading
 import webbrowser
+
+from pathlib import Path
 from flask import Flask, jsonify, render_template, request
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-load_dotenv()
+# Membaca file .env berdasarkan lokasi app.py
+BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env", override=True)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 1 * 1024 * 1024
